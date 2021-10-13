@@ -96,6 +96,10 @@ i {
   opacity: 0.4;
 }
 
+.dot:hover {
+  cursor: pointer;
+}
+
 .dot-active {
   opacity: 1;
 }
