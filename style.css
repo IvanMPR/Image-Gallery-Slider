@@ -77,3 +77,25 @@ i {
   color: white;
   transition: all 0.2s;
 }
+
+.dots-container {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+.dot {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+  margin: 0 0.6rem;
+  opacity: 0.4;
+}
+
+.dot-active {
+  opacity: 1;
+}
