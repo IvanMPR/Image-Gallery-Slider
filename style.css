@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +9,6 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
   width: 100vw;
   height: 100vh;
   background: skyblue;
@@ -102,4 +99,21 @@ i {
 
 .dot-active {
   opacity: 1;
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 25%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 992px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
 }
