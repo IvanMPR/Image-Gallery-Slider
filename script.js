@@ -6,16 +6,16 @@ const leftArrow = document.querySelector('.left-arrow');
 const dotsContainer = document.querySelector('.dots-container');
 
 data = {
-  currentSlide: 0,
-  maxSlide: images.length - 1,
+  currentImage: 0,
+  threshold: images.length - 1,
 };
 
-function goToSlide(slide) {
+function goToImage(imageNum) {
   images.forEach(
-    (img, i) => (img.style.transform = `translateX(${100 * (i - slide)}%`)
+    (img, i) => (img.style.transform = `translateX(${100 * (i - imageNum)}%`)
   );
 }
-goToSlide(0);
+goToImage(0);
 
 function createDots() {
   images.forEach((image, i) => {
@@ -36,32 +36,42 @@ function activateDot(currSlide) {
 activateDot(0);
 
 function moveRight() {
-  if (data.currentSlide === data.maxSlide) {
-    data.currentSlide = 0;
+  if (data.currentImage === data.threshold) {
+    data.currentImage = 0;
   } else {
-    data.currentSlide++;
+    data.currentImage++;
   }
-  activateDot(data.currentSlide);
-  goToSlide(data.currentSlide);
+
+  activateDot(data.currentImage);
+  goToImage(data.currentImage);
 }
 
 function moveLeft() {
-  if (data.currentSlide === 0) {
-    data.currentSlide = data.maxSlide;
+  if (data.currentImage === 0) {
+    data.currentImage = data.threshold;
   } else {
-    data.currentSlide--;
+    data.currentImage--;
   }
-  activateDot(data.currentSlide);
-  goToSlide(data.currentSlide);
+
+  activateDot(data.currentImage);
+  goToImage(data.currentImage);
 }
 
 window.addEventListener('keyup', e => {
-  if (e.key !== 'ArrowRight') moveRight();
+  if (e.key === 'ArrowRight') moveRight();
 });
 
 window.addEventListener('keyup', e => {
-  if (e.key !== 'ArrowLeft') moveLeft();
+  if (e.key === 'ArrowLeft') moveLeft();
 });
 
 rightArrow.addEventListener('click', moveRight);
 leftArrow.addEventListener('click', moveLeft);
+
+dotsContainer.addEventListener('click', function (e) {
+  if (!e.target.classList.contains('dot')) return;
+  const imgNumber = e.target.dataset.image;
+  data.currentImage = Number(imgNumber);
+  activateDot(imgNumber);
+  goToImage(imgNumber);
+});
