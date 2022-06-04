@@ -10,6 +10,6 @@ Slides can be changed in three ways, by clicking on the arrows inside of the ima
 by clicking on the dots in the lower middle part of the image container, and by pressing the 
 left or right arrow key on the keyboard.
 
-Main principle of the sliding images is the manipulation of their transform: translateY property.
+Main principle of the sliding images is the manipulation of their transform: translateX property.
 
 Photos aquired from Unsplash.
